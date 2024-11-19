@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BMW M5 F90 с закругленным дизайном</title>
+   <style>
+     body {
+       margin: 0;
+       overflow: hidden;
+       background: linear-gradient(to bottom, #87CEEB 60%, #555 40%); /* Небо и дорога */
+       background-image: url(https://avatars.mds.yandex.net/i?id=e9ab93b392f941308f081df3b23330c1_l-5521583-images-thumbs&n=13);
+       background-size: 90%;
+
+     }
+ 
+     /* Дорога */
+     .road {
+       position: absolute;
+       bottom: 0;
+       width: 100%;
+       height: 200px;
+       background-color: #555; /* Тёмно-серый цвет для дороги */
+     }
+ 
+     /* Полосы на дороге */
+     .road-line {
+       position: absolute;
+       bottom: 100px;
+       width: 100%;
+       height: 10px;
+       background: repeating-linear-gradient(
+         to right,
+         white 0,
+         white 50px,
+         transparent 50px,
+         transparent 100px
+       );
+     }
+ 
+     .car {
+       position: absolute;
+       bottom: 120px; /* Высота над дорогой */
+       left: -400px; /* Старт за экраном */
+       width: 400px;
+       height: 150px;
+       animation: drive 5s linear forwards;
+     }
+ 
+     /* Основной корпус */
+     .car .body {
+       position: relative;
+       width: 400px;
+       height: 100px;
+       background-color: #0B0B45; /* Тёмно-синий цвет кузова */
+       border-radius: 50px; /* Закругление корпуса */
+     }
+ 
+     /* Крыша */
+     .car .roof {
+       position: absolute;
+       top: -50px;
+       left: 80px;
+       width: 240px;
+       height: 60px;
+       background-color: #0B0B45;
+       border-radius: 60px; /* Более плавная крыша */
+     }
+ 
+     /* Лобовое стекло */
+     .car .windshield {
+       position: absolute;
+       top: -40px;
+       left: 90px;
+       width: 110px;
+       height: 30px;
+       background-color: lightblue;
+       border-radius: 0; /* Закруглённое стекло */
+       
+     }
+ 
+     /* Заднее стекло */
+     .car .rear-window {
+       position: absolute;
+       top: -40px;
+       left: 210px;
+       width: 100px;
+       height: 30px;
+       background-color: lightblue;
+       border-radius: 0;
+       
+       
+     }
+ 
+     /* Двери */
+     .car .door {
+       position: absolute;
+       top: 15px;
+       width: 90px;
+       height: 60px;
+       background-color: #0A0A3F;
+       border: 2px solid #1E1E60;
+       border-radius: 25px; /* Закруглённые двери */
+     }
+ 
+     .car .door.left {
+       left: 100px;
+     }
+ 
+     .car .door.right {
+       left: 210px;
+     }
+ 
+     /* Фары */
+     .car .headlight {
+       position: absolute;
+       top: 40px;
+       width: 20px;
+       height: 10px;
+       background-color: yellow;
+       border-radius: 50%;
+     }
+ 
+     .car .headlight.left {
+       left: 10px;
+     }
+ 
+     .car .headlight.right {
+       right: 10px;
+       background-color: red;
+     }
+ 
+     /* Решетка радиатора (ноздри BMW) */
+     .car .grille {
+       position: absolute;
+       top: 50px;
+       left: 40px;
+       width: 50px;
+       height: 10px;
+       background-color: black;
+       display: flex;
+       justify-content: space-between;
+       border-radius: 5px;
+     }
+ 
+     .car .grille div {
+       width: 20px;
+       height: 10px;
+       background-color: silver;
+       border-radius: 2px;
+     }
+ 
+     /* Колеса */
+     .car .wheel {
+       position: absolute;
+       bottom: -20px;
+       width: 70px;
+       height: 70px;
+       background-color: black;
+       border-radius: 50%;
+       border: 5px solid #555;
+     }
+ 
+     .car .wheel.front {
+       left: 30px;
+     }
+ 
+     .car .wheel.back {
+       right: 30px;
+     }
+ 
+     /* Диски */
+     .car .wheel::after {
+       content: '';
+       position: absolute;
+       top: 15px;
+       left: 15px;
+       width: 40px;
+       height: 40px;
+       background-color: silver;
+       border-radius: 50%;
+     }
+
+     
+     
+ 
+     /* Анимация движения */
+     @keyframes drive {
+       to {
+         left: calc(100% - 450px); /* Остановка перед правым краем */
+       }
+     }
+   </style>
+ </head>
+ <body>
+   <div class="road">
+     <div class="road-line"></div>
+   </div>
+   <div class="car">
+     <div class="body"></div>
+     <div class="roof"></div>
+     <div class="windshield"></div>
+     <div class="rear-window"></div>
+     <div class="door left"></div>
+     <div class="door right"></div>
+    <div class="headlight left"></div>
+    <div class="headlight right"></div>
+    <div class="grille">
+      <div></div>
+      <div></div>
+    </div>
+    <div class="wheel front"></div>
+    <div class="wheel back"></div>
+  </div>
+</body>
+</html>
